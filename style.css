@@ -1,0 +1,15 @@
+#container{
+    height: 300px;
+    width: 300px;
+    background-color: coral;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#resultado{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: wheat;
+    height: 30px;
+    width: 120px;
+}
