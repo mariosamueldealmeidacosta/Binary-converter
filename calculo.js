@@ -12,7 +12,7 @@ function calcular(a){
     respostafinal.innerHTML = " ";
     // Now we pass the value of A to an other variable because I 
     // think is better than use (let wholeNumber = Math.trunc(JSON.parse(a.value);)
-    // cause in this way (let b = a.value;) recive less bugs
+    // cause in this way (let b = a.value;) I recive less bugs
     let b = a.value;
     // This IF is used to prevent recive an empty number input
     if (!b.replace(/\s/g, '').length ) {
@@ -49,4 +49,56 @@ function calcular(a){
         // and finally put it on page with innerHTML
         respostafinal.innerHTML = invertendo;
     }
+}
+
+// Now we gonna convert a binary number to a whole number:
+// the first step we use this function so the user can only type a binary number 
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;
+   if((tecla==48 || tecla==49)) return true;
+    else{
+   return false;
+}
+}
+
+
+let exponential = 1;
+let NumeroParaMultiplicarcomExponecial = '';
+let SalvarExponecial = ' ';
+
+
+
+// the second step we need to invert the binary number 
+// later we can do an exponential for each number in 
+// the array 
+
+function calcularBinarioParaDecimal(a){
+    console.log("fazendo os calculos aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    let b = a.value;
+    let invertendo = b.split("").reverse();
+    console.log(invertendo)
+    for (let index = 0; index < invertendo.length; index++){
+        NumeroParaMultiplicarcomExponecial = invertendo[index] * exponential;
+        console.log(NumeroParaMultiplicarcomExponecial); 
+        SalvarExponecial += NumeroParaMultiplicarcomExponecial;
+        console.log(SalvarExponecial);
+        exponential = 2 * exponential;
+    }
+
+    SalvarExponecial.split("")
+    let ArrayParaSoma = parseInt(SalvarExponecial);
+    let soma = 0;
+    
+    // for(let i = 0; i < ArrayParaSoma.length; i++){
+    //     soma += ArrayParaSoma[i];
+    // }
+    console.log(ArrayParaSoma)
+
+
+    // exponential = 1;
+    // NumeroParaMultiplicarcomExponecial = '';
+    // SalvarExponecial = ' ';
+    // invertendo = ' ';
+    // exponential = ' ';
+
 }
