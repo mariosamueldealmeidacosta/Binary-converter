@@ -64,15 +64,22 @@ function SomenteNumero(e){
 
 let exponential = 1;
 let NumeroParaMultiplicarcomExponecial = '';
-let SalvarExponecial = ' ';
+let SalvarExponecial = [ ];
+let soma = 0;
 
-
+let respostafinal2 = document.getElementById("resultado2") 
 
 // the second step we need to invert the binary number 
 // later we can do an exponential for each number in 
 // the array 
 
 function calcularBinarioParaDecimal(a){
+    // With the respostafinal.innerHTML = " "; we erase de previous result in 
+    // case that the user already use the program 
+    respostafinal2.innerHTML = " ";
+    exponential = 1;
+    NumeroParaMultiplicarcomExponecial = '';
+    SalvarExponecial.length = 0;   
     console.log("fazendo os calculos aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     let b = a.value;
     let invertendo = b.split("").reverse();
@@ -80,25 +87,27 @@ function calcularBinarioParaDecimal(a){
     for (let index = 0; index < invertendo.length; index++){
         NumeroParaMultiplicarcomExponecial = invertendo[index] * exponential;
         console.log(NumeroParaMultiplicarcomExponecial); 
-        SalvarExponecial += NumeroParaMultiplicarcomExponecial;
+        SalvarExponecial.push(NumeroParaMultiplicarcomExponecial);
         console.log(SalvarExponecial);
         exponential = 2 * exponential;
+        respostafinal2.innerHTML = SalvarExponecial;
     }
 
-    SalvarExponecial.split("")
-    let ArrayParaSoma = parseInt(SalvarExponecial);
-    let soma = 0;
+    // let invertendo2 = respostafinal2.innerText.split("")
+    // let invertendo2 = respostafinal2
+    soma = 0;
+    // let passarParaInteiro = " ";
     
-    // for(let i = 0; i < ArrayParaSoma.length; i++){
-    //     soma += ArrayParaSoma[i];
-    // }
-    console.log(ArrayParaSoma)
+    for(let i = 0; i < SalvarExponecial.length; i++){
+        soma += parseInt(SalvarExponecial[i]);
+    }
+    
+    console.log(soma);
 
 
-    // exponential = 1;
-    // NumeroParaMultiplicarcomExponecial = '';
-    // SalvarExponecial = ' ';
-    // invertendo = ' ';
-    // exponential = ' ';
+    // O problema que esta acontecendo é que 
+    // o laço for acima esta em dando o loop de soma 
+    // em numeros em forma de unidades quando
+    // o numero é dezena
 
 }
