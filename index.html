@@ -9,12 +9,21 @@
 </head>
 <body>
     <div id="container">
-        <h1>Conversor de binários</h1>
-        <input type="number" id="input1">
+        <h1>Decimal number to binary number converter</h1>
+        <input type="number" min="0" id="input1">
         <br><br><br>
         <p id="resultado"></p>
         <br><br>
-        <button onclick="calcular(document.getElementById('input1'))">Calcular</button>
+        <button onclick="calcular(document.getElementById('input1'))">Calculate</button>
+    </div>
+    <hr color="black">
+    <div id="container">
+        <h1>Binary number to decimal number converter</h1>
+        <input type="number" min="0" max="1" onkeypress="return SomenteNumero(event)" id="input2">
+        <br><br><br>
+        <p id="resultado2"></p>
+        <br><br>
+        <button onclick="calcularBinarioParaDecimal(document.getElementById('input2'))">Calculate</button>
     </div>
     
 </body>

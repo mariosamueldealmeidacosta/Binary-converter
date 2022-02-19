@@ -12,7 +12,7 @@ function calcular(a){
     respostafinal.innerHTML = " ";
     // Now we pass the value of A to an other variable because I 
     // think is better than use (let wholeNumber = Math.trunc(JSON.parse(a.value);)
-    // cause in this way (let b = a.value;) recive less bugs
+    // cause in this way (let b = a.value;) I recive less bugs
     let b = a.value;
     // This IF is used to prevent recive an empty number input
     if (!b.replace(/\s/g, '').length ) {
@@ -49,4 +49,55 @@ function calcular(a){
         // and finally put it on page with innerHTML
         respostafinal.innerHTML = invertendo;
     }
+}
+
+// Now we gonna convert a binary number to a whole number:
+// we use this function so the user can only type a binary number 
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;
+   if((tecla==48 || tecla==49)) return true;
+    else{
+   return false;
+}
+}
+
+// The first thing that we do is define the variables that is used below
+let exponential = 1;
+let NumeroParaMultiplicarcomExponecial = '';
+let SalvarExponecial = [ ];
+let soma = 0;
+let respostafinal2 = document.getElementById("resultado2") 
+
+// the second step we need to invert the binary number 
+// later we can do an exponential for each number in 
+// the array 
+
+function calcularBinarioParaDecimal(a){
+    //  Here we redefine the variables in 
+    // case that the user already use the program 
+    respostafinal2.innerHTML = " ";
+    exponential = 1;
+    NumeroParaMultiplicarcomExponecial = '';
+    SalvarExponecial.length = 0;   
+    soma = 0;
+    // here we put a.value to variable b like in the before function
+    let b = a.value;
+    // to do the calculations we invert the binary number
+    let invertendo = b.split("").reverse();
+    // them we iterate the number with a for loop
+    for (let index = 0; index < invertendo.length; index++){
+        // here we multiplicate the first in the "binaryLine" with the exponential of 2
+        NumeroParaMultiplicarcomExponecial = invertendo[index] * exponential;
+        // Now we save the result in an array
+        SalvarExponecial.push(NumeroParaMultiplicarcomExponecial);
+        // and here the exponential is duplicate
+        exponential = 2 * exponential;
+    }
+    
+    // last we just plus the results that are save in the array
+    for(let i = 0; i < SalvarExponecial.length; i++){
+        soma += parseInt(SalvarExponecial[i]);
+    }
+    
+    respostafinal2.innerHTML = soma;
 }
